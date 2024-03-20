@@ -50,7 +50,7 @@ int verificarPositivos(int* array, int tamanhoArray ){
             return 0;
         }
     }
-    printf("Todos os números são positivos");
+    printf("Todos os números são positivos\n");
     return 1;
 }
 
@@ -60,18 +60,18 @@ int verificarNegativas(int* array, int tamanhoArray ){
             return 0;
         }
     }
-    printf("Todos os números não são positivos");
+    printf("Todos os números não são positivos\n");
     return 1;
 }
 
 int verificarPrimo(int* array, int tamanhoArray ){
     for (int i = 0; i < tamanhoArray; i++) {
         if(isPrimo(array[i]) == 1){
-            printf("Há um número primo cujo valor é .... %d", array[i]);
+            printf("Há um número primo cujo valor é .... %d\n", array[i]);
             return 0;
         }
     }
-    printf("Não há números primos");
+    printf("Não há números primos\n");
     return 1;
 }
 
@@ -81,7 +81,12 @@ int main() {
     int* array = lerArquivo(nomeArquivo, &tamanhoArray);
     int hasPositivo, hasNegativo;
     hasPositivo = verificarPositivos(array, tamanhoArray);
-    hasPositivo = verificarNegativas(array, tamanhoArray);
+    hasNegativo = verificarNegativas(array, tamanhoArray);
+
+    if(hasNegativo + hasPositivo == 0){
+        printf("Nem todos os numeros sao positivos\n");
+    }
+
     verificarPrimo(array, tamanhoArray);
 
     free(array);
